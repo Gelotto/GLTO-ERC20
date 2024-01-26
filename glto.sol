@@ -18,6 +18,11 @@ contract Gelotto is ERC20, ERC20Burnable, ERC20Pausable, Ownable, ERC20Permit, E
         _mint(msg.sender, 420690000 * 10 ** decimals());
     }
 
+    // Override the decimals function to set a new decimal place
+    function decimals() public view virtual override returns (uint8) {
+        return 6;
+    }
+
     function pause() public onlyOwner {
         _pause();
     }
